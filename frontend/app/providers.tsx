@@ -6,7 +6,7 @@ import { getDatabase } from 'firebase/database';
 import { FirebaseAppProvider, DatabaseProvider, AuthProvider, useFirebaseApp } from 'reactfire';
 import {firebaseConfig} from "@/lib/firebase";
 
-function FirebaseComponents({ children }) {
+function FirebaseComponents({ children }:any) {
     const app = useFirebaseApp(); // a parent component contains a `FirebaseAppProvider`
 
     // initialize Database and Auth with the normal Firebase SDK functions

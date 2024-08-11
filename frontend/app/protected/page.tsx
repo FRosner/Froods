@@ -1,4 +1,5 @@
-// app/protected/page.tsx
+"use client";
+
 import { useUser } from 'reactfire';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';

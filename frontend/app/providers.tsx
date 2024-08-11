@@ -5,6 +5,7 @@ import { getDatabase } from 'firebase/database';
 
 import { FirebaseAppProvider, DatabaseProvider, AuthProvider, useFirebaseApp } from 'reactfire';
 import {firebaseConfig} from "@/lib/firebase";
+import {MantineProvider} from "@mantine/core";
 
 function FirebaseComponents({ children }:any) {
     const app = useFirebaseApp(); // a parent component contains a `FirebaseAppProvider`
@@ -25,11 +26,13 @@ function FirebaseComponents({ children }:any) {
 
 export function Providers({children}: { children: React.ReactNode }) {
     return (
-        <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-            <FirebaseComponents>
-                {children}
-            </FirebaseComponents>
-        </FirebaseAppProvider>
+        <MantineProvider withGlobalStyles withNormalizeCSS>
+            <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+                <FirebaseComponents>
+                    {children}
+                </FirebaseComponents>
+            </FirebaseAppProvider>
+        </MantineProvider>
     )
 }
 

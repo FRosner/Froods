@@ -1,0 +1,11 @@
+Store your firebase.json inside this folder. Example:
+
+export const firebaseConfig = {
+    apiKey: "redacted",
+    authDomain: "redacted",
+    projectId: "redacted",
+    storageBucket: "redacted",
+    messagingSenderId: "redacted",
+    appId: "redacted",
+    measurementId: "redacted"
+};

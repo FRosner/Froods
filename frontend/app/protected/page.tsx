@@ -5,18 +5,18 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 export default function ProtectedPage() {
-    const { data: user } = useUser();
+    const { status, data: user } = useUser();
     const router = useRouter();
 
     useEffect(() => {
-        if (!user) {
+        if (!user && status !== 'loading') {
             router.push('/login'); // Redirect to login page if not authenticated
         }
-    }, [user, router]);
+    }, [user, router, status]);
 
-    if (!user) {
-        return <p>Loading...</p>;
+    if (status === 'loading') {
+        return <span>Loading...</span>;
     }
 
-    return <div>Protected Content</div>;
+    return <div>{user?.displayName}</div>;
 }
